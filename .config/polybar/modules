@@ -1,0 +1,493 @@
+
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+
+[module/separator]
+type = custom/text
+content = "  "
+content-background = ${colors.color1}
+content-foreground = ${colors.color7}
+content-underline = ${colors.color7}
+
+[module/separator1]
+
+type = custom/text
+content = ""
+content-background = ${colors.color1}
+content-foreground = ${colors.color2}
+content-underline = ${colors.color7}
+
+[module/separator1alt]
+
+type = custom/text
+content = "   "
+content-background = ${colors.color1}
+content-foreground = ${colors.color1}
+content-underline = ${colors.color7}
+
+
+[module/separator2]
+
+type = custom/text
+content = " "
+content-background = ${colors.color0}
+content-foreground = ${colors.color2}
+content-underline = ${colors.color7}
+
+
+[module/separator3]
+
+type = custom/text
+content = " "
+content-background = ${colors.color2}
+content-foreground = ${colors.color3}
+content-underline = ${colors.color7}
+
+[module/separator4]
+
+type = custom/text
+content = " "
+content-background = ${colors.color3}
+content-foreground = ${colors.color4}
+content-underline = ${colors.color7}
+
+
+[module/separatorfinal]
+
+type = custom/text
+content = ""
+
+
+content-background = ${colors.color3}
+content-foreground = ${colors.color0}
+content-underline = ${colors.color7}
+
+[module/separatorbottom]
+type = custom/text
+content = "    "
+content-background = ${colors.color0}
+content-foreground = ${colors.color0}
+content-underline = ${colors.color0}
+
+
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = "   "
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.color7}:
+
+label-layout = %layout%
+label-layout-underline = ${colors.color7}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.color7}
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+format-mounted = <label-mounted>
+format-unmounted = <label-unmounted>
+
+spacing = 4
+
+label-mounted = %mountpoint%: %percentage_used%% of %total%
+label-mounted-foreground = ${colors.font}
+label-mounted-background = ${colors.color1}
+label-mounted-underline = ${colors.color7}
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.font}
+format-underline = ${colors.color7}
+
+
+; Todo i3
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = false
+wrapping-scroll = false
+format-foreground = ${colors.color7}
+label-urgent-foreground = ${colors.color2}
+label-separator-padding = 1
+label-separator = |
+
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format-prefix = "  "
+format = <label> <bar>
+label = %percentage%%
+label-foreground = ${colors.color7}
+format-prefix-foreground = ${colors.color7}
+bar-width = 10
+bar-indicator =
+bar-indicator-foreground = #fff
+bar-indicator-font = 2
+bar-fill = 
+bar-fill-font = 2
+bar-fill-foreground = ${colors.color7}
+bar-empty = 
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${colors.color1}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+; Separator in between workspaces
+label-separator = |
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume-prefix = "    "
+format-volume = <label-volume> <bar-volume>
+label-volume = %percentage%%
+format-volume-foreground = ${colors.color7}
+
+label-Audio Muted
+format-muted = 
+label-muted-foreground = ${colors.color7}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.color7}
+bar-volume-foreground-1 = ${colors.color7}
+bar-volume-foreground-2 = ${colors.color7}
+bar-volume-foreground-3 = ${colors.color7}
+bar-volume-foreground-4 = ${colors.color7}
+bar-volume-foreground-5 = ${colors.color7}
+bar-volume-foreground-6 = ${colors.color7}
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-font = 2
+bar-volume-fill = 
+bar-volume-fill-font = 2
+bar-volume-empty = 
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/alsa]
+type = internal/alsa
+
+format-volume = <label-volume> <bar-volume>
+label-volume = VOL
+label-volume-foreground = ${root.foreground}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = sound muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "  "
+format-prefix-foreground = ${colors.font}
+format-background = ${colors.color1}
+format-foreground = ${colors.font}
+format-underline = ${colors.color7}
+label = %percentage:2%%   
+
+
+[module/memory]
+format-background = ${colors.color1}
+format-foreground = ${colors.font}
+type = internal/memory
+interval = 2
+format-prefix = "   "
+format-prefix-foreground = ${colors.font}
+format-underline = ${colors.color7}
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp3s0
+interval = 1.0
+
+format-connected =  <label-connected>
+format-connected-underline = ${colors.color7}
+format-connected-prefix = "  "
+label-connected =  %essid%:  %signal%%     %upspeed%   %downspeed%
+format-connected-background = ${colors.color2}
+label-connected-foreground = ${colors.color0}
+
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${colors.color7}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.color0}
+format-disconnected-background = ${colors.color2}
+
+[module/eth]
+type = internal/network
+interface = enp2s0
+interval = 1.0
+
+format-connected-foreground = ${colors.font}
+format-connected = <label-connected>
+format-connected-underline = ${colors.color7}
+format-connected-prefix = "     "
+format-connected-prefix-foreground = ${colors.font}
+label-connected =  %local_ip%     %upspeed%      %downspeed%
+format-connected-background = ${colors.color2}
+
+format-disconnected-prefix = "    "
+format-disconnected-foreground = ${colors.font}
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${colors.color7}
+label-disconnected =    %ifname% disconnected  
+format-disconnected-background = ${colors.color2}
+label-disconnected-foreground = ${colors.font}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date =   %d-%m
+date-alt = "%d-%m-%Y"
+
+time =  %H:%M
+time-alt = %H:%M:%S
+ format-background = ${colors.color0}
+#format-prefix = "  "
+ format-foreground = ${colors.color7}
+ format-underline = ${colors.color0}
+
+label = %time%   %date%
+
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-background = ${colors.color3}
+format-charging-underline = ${colors.color7}
+label-charging-foreground = ${colors.font}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-background = ${colors.color3}
+format-discharging-foreground = ${colors.font}
+format-discharging-underline = ${colors.color7}
+label-discharging-foreground = ${colors.font}
+
+format-full-prefix = "Full "
+format-full-prefix-foreground = ${colors.font}
+format-full-underline = ${colors.color7}
+format-full-background = ${colors.color3}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+
+ramp-capacity-foreground = ${colors.font}
+
+animation-charging-0 =  
+animation-charging-1 =  
+animation-charging-2 =  
+animation-charging-foreground = ${colors.font}
+
+animation-charging-framerate = 500
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 =  
+animation-discharging-3 = 
+animation-discharging-4 = 
+
+
+animation-discharging-foreground = ${colors.font}
+animation-discharging-framerate = 750
+
+[module/temperature]
+
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = ${colors.color7}
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${colors.color7}
+format-prefix = "  "
+format-background = ${colors.color3}
+format-suffix = "  "
+label = %temperature-c%    
+label-warn = %temperature-c%
+label-foreground = ${colors.font}
+
+ramp-0 =  
+ramp-1 =  
+ramp-2 =  
+ramp-foreground = ${colors.font}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.font}
+label-close =  cancel
+label-close-foreground = ${colors.font}
+label-separator = |
+label-separator-foreground = ${colors.font}
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2w
+
+label-empty = %indexe
+label-empty-foreground = ${colors.font}
+label-empty-padding = 2
+
+; Separator in between workspaces
+;label-separator = |
+
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = python ~/.config/polybar/scripts/spotify.py
+format-prefix-foreground = ${colors.color7}
+;format-prefix-foreground = #1db954
+;format- = ${colors.highlight}
+format-foreground = ${colors.color7}
+
+[module/weather]
+type = custom/script
+interval = 10
+format = <label>
+format-prefix = "     "
+format-prefix-foreground = ${colors.color7}
+format-foreground = ${colors.color7}
+format-background = ${colors.color0}
+exec = python -u ~/.config/polybar/scripts/weather.py
+tail = true
+
+
+[module/updates-arch-aur]
+type = custom/script
+exec = sh  ~/.config/polybar/scripts/updates-arch-aur.sh
+interval = 600
+format-prefix = Updates
+format-prefix-foreground = ${colors.color7}
+tail = true
+
+
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/.config/polybar/scripts/updates-arch-combined.sh
+interval = 600
+format-prefix =
+format-foreground = ${colors.color7}
