@@ -1,0 +1,126 @@
+
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚═══s══╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://githsub.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;==========================================================
+
+
+[section/base]
+include-file = ~/.config/polybar/modules
+
+[colors]
+background = ${xrdb:color0:#222}
+background-alt = #444
+foreground = ${xrdb:color7:#222}
+foreground-alt = #555
+color0 = ${xrdb:color0:#f00}
+color1 = ${xrdb:color1:#f00}
+color2 = ${xrdb:color2:#f00}
+color3 = ${xrdb:color3:#f00}
+color4 = ${xrdb:color4:#f00}
+color5 = ${xrdb:color5:#f00}
+color6 = ${xrdb:color6:#f00}
+color7 = ${xrdb:color7:#f00}
+color8 = ${xrdb:color8:#f00}
+color9 = ${xrdb:color9:#f00}
+color10 = ${xrdb:color10:#f00}
+
+font = ${xrdb:color0}
+
+
+[bar/main]
+;override-redirect = true
+monitor = eDP1
+separator = 
+format-separator-background = ${colors.color0}
+width = 100%
+height = 2.3%
+offset-x = 
+offset-y =  
+radius = 6.0s
+fixed-center = true
+
+background = ${colors.background}
+foreground =  ${colors.foreground-alt}
+
+line-size = 2 
+line-color = ${colors.color7}
+
+border-color = $ff000000
+border-top = 2 
+border-right = 10
+border-left = 10
+border-bottom = 0 
+
+
+# Cambia los márgenes que hay a los lados
+padding-left = 0
+padding-right = 5
+
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-1 = Hack-Regular:size=12;
+font-2 = FontAwesome:pixelsize=12;
+font-0 = Roboto:size=13:weight=bold;
+font-3 = Material Icons:size=12;
+font-4 = Weather Icons:size-12;
+
+
+modules-left = separator1alt filesystem memory cpu  separator1 wlan eth separator3 battery temperature separatorfinal  
+;  date powermenu separatorfinal
+modules-center = 
+modules-right = updates-arch-combined  weather 
+
+tray-position = right
+tray-padding = 1
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+[bar/secondary]
+module-margin = NN
+inherit = bar/main
+bottom = true
+
+modules-left =  i3
+modules-center = spotify 
+modules-right = xbacklight separatorbottom pulseaudio separatorbottom date
+
+width = 100%
+height = 2.5%
+
+padding-left = 2
+padding-right = 5
+
+border-color = $ff0000
+border-bottom = 2
+; vim:ft=dosin;
+;
