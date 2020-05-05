@@ -1,0 +1,28 @@
+#!/bin/bash
+
+MESSAGE="Which directory would you like to open Tmux/Vim in?"
+
+FILES=("1) dev" "2) sandbox")
+EXIT=false
+
+while [ !$EXIT ]
+do 
+echo $MESSAGE
+printf '%s\n' "${FILES[@]}"
+read DIR
+
+  if [ $DIR == "1" ]; then
+    cd /home/diego/projects/
+    tmuxp load ~/.tmuxp/ide.yaml
+    EXIT = true
+
+  elif [ $DIR == "2" ]; then
+    cd /home/diego/sandbox/
+    tmuxp load ~/.tmuxp/ide.yaml
+    EXIT = true
+
+  else
+    echo "Didn't quite get that!"
+  fi
+done
+

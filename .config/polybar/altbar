@@ -22,14 +22,11 @@
 include-file = ~/.config/polybar/modules
 
 [colors]
-; background = ${xrdb:color0:#222}
-background = #aa090909
-
+background = ${xrdb:color0:#222}
 background-alt = #444
 foreground = ${xrdb:color7:#222}
 foreground-alt = #555
-color0 = #aa090909
-; color0 = ${xrdb:color0:#f00}
+color0 = ${xrdb:color0:#f00}
 color1 = ${xrdb:color1:#f00}
 color2 = ${xrdb:color2:#f00}
 color3 = ${xrdb:color3:#f00}
@@ -44,7 +41,7 @@ color10 = ${xrdb:color10:#f00}
 font = ${xrdb:color0}
 
 
-[bar/main]
+[bar/altbar]
 ;override-redirect = true
 monitor = eDP1
 separator = 
@@ -53,8 +50,7 @@ width = 100%
 height = 1.9%
 offset-x = 
 offset-y =  
-; Border redondeados
-; radius = 4.0s
+radius = 4.0s
 fixed-center = true
 
 background = ${colors.background}
@@ -130,21 +126,17 @@ border-bottom = 0
 border-top = 0
 
 
-
-; modules-left = separator1alt filesystem memory cpu  separator1 wlan eth separator3 battery temperature separatorfinal  
-
 [bar/altbar]
-module-margin = nn 
+module-margin = NN 
 inherit = bar/main
-bottom = false
+bottom = true
 
-modules-left =  i3 separatorbottom spotify
-modules-center = wlan eth separatorbottom weather 
-modules-right = memory cpu temperature separatorbottom   updates-arch-combined separatorbottom  separatorbottom xbacklight separatorbottom pulseaudio  separatorbottom date separatorbottom battery
-
+modules-left =  i3
+modules-center = spotify 
+modules-right = xbacklight separatorbottom pulseaudio separatorbottom date
 
 width = 100%
-height = 2.0%
+; height = 1.8%
 
 padding-left = 2
 padding-right = 2
@@ -152,31 +144,3 @@ padding-right = 2
 border-color = $ff0000
 border-bottom = 0
 border-top = 0
-border-left = 0
-border-right = 0
-
-tray-position = center
-tray-detached = false
-tray-padding = 1
-
-
-[bar/altbar2]
-module-margin = nn 
-inherit = bar/main
-bottom = false
-
-modules-left =  
-modules-center = spotify   
-modules-right = weather 
-width = 100%
-height = 1.8%
-
-padding-left = 2
-padding-right = 2
-
-border-color = $ff0000
-border-bottom = 0
-border-top = 0
-border-left = 0
-border-right = 0
-

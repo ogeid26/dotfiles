@@ -1,0 +1,133 @@
+set nocompatible              " be iMproved, required
+syntax on
+filetype off                  " required
+
+" VUNDLE
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+" Aesthetics
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'sainnhe/gruvbox-material'
+Plugin 'morhetz/gruvbox'
+Plugin 'dylanaraps/wal.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'prettier/vim-prettier'
+
+" Workspace
+Plugin 'christoomey/vim-tmux-navigator'
+
+" Writing
+Plugin 'lervag/vimtex'
+Plugin 'terryma/vim-smooth-scroll'
+Plugin 'alvan/vim-closetag'
+Plugin 'vimwiki/vimwiki'
+Plugin 'tpope/vim-liquid'
+Plugin 'plasticboy/vim-markdown'
+" Better syntax highlighting
+Plugin 'mboughaba/i3config.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'romainl/vim-cool'
+"Development
+Plugin 'tpope/vim-commentary'
+
+" Finding/completion
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Tools
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'SirVer/UltiSnips'
+Plugin 'honza/vim-snippets'
+Plugin 'junegunn/fzf.vim'
+
+Plugin 'ryanoasis/vim-devicons'
+
+call vundle#end()
+filetype plugin indent on
+
+
+set mouse=a
+
+set ttyfast
+set timeoutlen=300
+syntax enable
+
+set linebreak
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic = 1
+colorscheme gruvbox
+
+set termguicolors
+set number relativenumber
+
+if &compatible
+
+  set nocompatible
+endif
+
+set incsearch
+set hlsearch
+
+" Enable folding
+set nofoldenable
+set foldmethod=syntax
+
+let mapleader = ","
+let maplocalleader = "\\"
+let g:airline_powerline_fonts = 1
+set encoding=utf8
+set t_Co=256
+set t_ut=
+
+" Conceapling (also known as pretty Markdown syntax)
+set conceallevel=2
+
+" augroup vimrc
+"   au BufReadPre * setlocal foldmethod=indent
+"   au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+" augroup END
+
+" Enable Tmux-termguicolors compatibility
+if exists('+termguicolors')
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+" Clipboard hacking
+set clipboard=unnamedplus
+
+" Luke Smith's shortcuts
+autocmd BufWritePost ~/.scripts/folders,~/.scripts/configs !bash ~/.scripts/shortcuts.sh
+
+" Markdown file recognition
+au BufNewFile,BufFilePre,BufRead *.md setf markdown
+
+" Typescript file recognition
+au BufNewFile,BufFilePre,BufRead *.tsx setf typescript
+
+" Indenting
+set expandtab
+set shiftwidth=4
+se tabstop=4
+set softtabstop=4
+
+let g:bclose_multiple = 0
+
+" All things git
+set diffopt+=vertical
+
+
+" PYTHON
+let python_highlight_all = 1
+let g:polyglot_disabled = ['latex']
+
+

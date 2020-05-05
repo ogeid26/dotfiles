@@ -1,5 +1,0 @@
-#!/bin/sh
-cd ~/projects/
-
-tmux new -s dev || tmux attach -t dev
-

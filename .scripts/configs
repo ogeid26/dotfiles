@@ -1,12 +1,9 @@
-cff	~/.scripts/folders
 cfc	~/.scripts/configs
 cfb	~/.bashrc
 cfz	~/.zshrc
-cfv	~/.vimrc
+cfv	~/.vim/vimrc
 cfr	~/.config/ranger/rc.conf
 cfi	~/.config/i3/config
-eb	~/Documents/LaTeX/uni.bib
-cv	~/Documents/LaTeX/cv.tex
 cfp	~/.config/polybar/config
 cfd	~/.Xdefaults
 cfn	~/.config/newsboat/config

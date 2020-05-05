@@ -23,7 +23,7 @@ content-underline = ${colors.color7}
 [module/separator1alt]
 
 type = custom/text
-content = "   "
+content = "  "
 content-background = ${colors.color1}
 content-foreground = ${colors.color1}
 content-underline = ${colors.color7}
@@ -68,9 +68,11 @@ content-underline = ${colors.color7}
 [module/separatorbottom]
 type = custom/text
 content = "    "
-content-background = ${colors.color0}
-content-foreground = ${colors.color0}
-content-underline = ${colors.color0}
+; content-background = ${colors.color0}
+; content-foreground = ${colors.color0}
+; content-underline = ${colors.color0}
+; underline = ${colors.background}
+
 
 
 
@@ -102,12 +104,12 @@ format-unmounted = <label-unmounted>
 spacing = 4
 
 label-mounted = %mountpoint%: %percentage_used%% of %total%
-label-mounted-foreground = ${colors.font}
-label-mounted-background = ${colors.color1}
-label-mounted-underline = ${colors.color7}
+label-mounted-foreground = ${colors.color7}
+; label-mounted-background = ${colors.color1}
+; label-mounted-underline = ${colors.color7}
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.font}
-format-underline = ${colors.color7}
+label-unmounted-foreground = ${colors.color7
+; format-underline = ${colors.color7}
 
 
 ; Todo i3
@@ -121,26 +123,31 @@ format-foreground = ${colors.color7}
 label-urgent-foreground = ${colors.color2}
 label-separator-padding = 1
 label-separator = |
+label-focused-foreground = ${colors.color4}
 
 
 [module/xbacklight]
 type = internal/xbacklight
 
 format-prefix = "  "
-format = <label> <bar>
+; format = <label> <bar>
+format = <label> 
 label = %percentage%%
-label-foreground = ${colors.color7}
-format-prefix-foreground = ${colors.color7}
 bar-width = 10
 bar-indicator =
-bar-indicator-foreground = #fff
 bar-indicator-font = 2
-bar-fill = 
+bar-fill = -
 bar-fill-font = 2
-bar-fill-foreground = ${colors.color7}
-bar-empty = 
+bar-indicator-foreground = #fff
+; bar-fill-foreground = ${colors.color7}
+; bar-empty-foreground = ${colors.foreground-alt}
+; label-foreground = ${colors.color7}
+; format-prefix-foreground = ${colors.color7}
+format-prefix-foreground = ${colors.color7}
+format-foreground = ${colors.color7}
+format-background = ${colors.color0}
+ar-empty = -
 bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -182,31 +189,32 @@ label-separator = |
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume-prefix = "    "
-format-volume = <label-volume> <bar-volume>
+format-volume-prefix = "  "
+format-volume = <label-volume> 
 label-volume = %percentage%%
 format-volume-foreground = ${colors.color7}
 
-label-Audio Muted
 format-muted = 
 label-muted-foreground = ${colors.color7}
 
 bar-volume-width = 10
-bar-volume-foreground-0 = ${colors.color7}
-bar-volume-foreground-1 = ${colors.color7}
-bar-volume-foreground-2 = ${colors.color7}
-bar-volume-foreground-3 = ${colors.color7}
-bar-volume-foreground-4 = ${colors.color7}
-bar-volume-foreground-5 = ${colors.color7}
-bar-volume-foreground-6 = ${colors.color7}
+; bar-volume-foreground-0 = ${colors.color7}
+; bar-volume-foreground-1 = ${colors.color7}
+; bar-volume-foreground-2 = ${colors.color7}
+; bar-volume-foreground-3 = ${colors.color7}
+; bar-volume-foreground-4 = ${colors.color7}
+; bar-volume-foreground-5 = ${colors.color7}
+; bar-volume-foreground-6 = ${colors.color7}
+bar-volume-empty-foreground = ${colors.color0}
+bar-volume-background = ${colors.color7}
 bar-volume-gradient = false
 bar-volume-indicator = 
 bar-volume-indicator-font = 2
-bar-volume-fill = 
+bar-volume-fill = -
 bar-volume-fill-font = 2
-bar-volume-empty = 
+bar-volume-empty = -
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+format-background = ${colors.color7}
 
 [module/alsa]
 type = internal/alsa
@@ -255,22 +263,22 @@ label-song-ellipsis = true
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "  "
-format-prefix-foreground = ${colors.font}
-format-background = ${colors.color1}
-format-foreground = ${colors.font}
-format-underline = ${colors.color7}
+format-prefix = "   "
+; format-prefix-foreground = ${colors.font}
+; format-background = ${colors.color1}
+format-foreground = ${colors.color7}
+; format-underline = ${colors.color7}
 label = %percentage:2%%   
 
 
 [module/memory]
-format-background = ${colors.color1}
-format-foreground = ${colors.font}
+; format-background = ${colors.color1}
+format-foreground = ${colors.color7}
 type = internal/memory
 interval = 2
 format-prefix = "   "
-format-prefix-foreground = ${colors.font}
-format-underline = ${colors.color7}
+format-prefix-foreground = ${colors.color7}
+; format-underline = ${colors.color7}
 label = %percentage_used%%
 
 [module/wlan]
@@ -279,38 +287,41 @@ interface = wlp3s0
 interval = 1.0
 
 format-connected =  <label-connected>
-format-connected-underline = ${colors.color7}
-format-connected-prefix = "  "
+format-connected-prefix = ""
 label-connected =  %essid%:  %signal%%     %upspeed%   %downspeed%
-format-connected-background = ${colors.color2}
-label-connected-foreground = ${colors.color0}
 
 format-disconnected = <label-disconnected>
-format-disconnected-underline = ${colors.color7}
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.color0}
-format-disconnected-background = ${colors.color2}
+label-disconnected =  
+
+; format-connected-underline = ${colors.color7}
+label-disconnected-foreground = ${colors.color7}
+; format-disconnected-background = ${colors.color2}
+; format-disconnected-underline = ${colors.color7}
+; format-connected-background = ${colors.color2}
+label-connected-foreground = ${colors.color7}
+
 
 [module/eth]
 type = internal/network
 interface = enp2s0
 interval = 1.0
 
-format-connected-foreground = ${colors.font}
+format-connected-foreground = ${colors.color7}
+; format-connected-underline = ${colors.color7}
+format-connected-prefix-foreground = ${colors.color7}
+format-disconnected-foreground = ${colors.color7}
+; format-disconnected-background = ${colors.color2}
+label-disconnected-foreground = ${colors.color7}
+; format-disconnected-underline = ${colors.color7}
+; format-connected-background = ${colors.color2}
 format-connected = <label-connected>
-format-connected-underline = ${colors.color7}
 format-connected-prefix = "     "
-format-connected-prefix-foreground = ${colors.font}
 label-connected =  %local_ip%     %upspeed%      %downspeed%
-format-connected-background = ${colors.color2}
 
 format-disconnected-prefix = "    "
-format-disconnected-foreground = ${colors.font}
 format-disconnected = <label-disconnected>
-format-disconnected-underline = ${colors.color7}
-label-disconnected =    %ifname% disconnected  
-format-disconnected-background = ${colors.color2}
-label-disconnected-foreground = ${colors.font}
+label-disconnected =   
+
 
 [module/date]
 type = internal/date
@@ -322,9 +333,8 @@ date-alt = "%d-%m-%Y"
 time =  %H:%M
 time-alt = %H:%M:%S
  format-background = ${colors.color0}
-#format-prefix = "  "
+; #format-prefix = "  "
  format-foreground = ${colors.color7}
- format-underline = ${colors.color0}
 
 label = %time%   %date%
 
@@ -337,32 +347,32 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-background = ${colors.color3}
-format-charging-underline = ${colors.color7}
-label-charging-foreground = ${colors.font}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-background = ${colors.color3}
-format-discharging-foreground = ${colors.font}
-format-discharging-underline = ${colors.color7}
-label-discharging-foreground = ${colors.font}
+; format-discharging-background = ${colors.color3}
+format-discharging-foreground = ${colors.color7}
+; format-discharging-underline = ${colors.color7}
+label-discharging-foreground = ${colors.color7}
+format-full-prefix-foreground = ${colors.color7}
+; format-full-prefix-background = ${colors.color3}
+; format-full-underline = ${colors.color7}
+; format-full-background = ${colors.color3}
+format-full-foreground = ${colors.color7}
+; format-charging-background = ${colors.color3}
+; format-charging-underline = ${colors.color7}
+label-charging-foreground = ${colors.color7}
 
 format-full-prefix = "Full "
-format-full-prefix-foreground = ${colors.font}
-format-full-underline = ${colors.color7}
-format-full-background = ${colors.color3}
-
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-3 = 
-
-ramp-capacity-foreground = ${colors.font}
+ramp-capacity-foreground = ${colors.color7}
 
 animation-charging-0 =  
 animation-charging-1 =  
 animation-charging-2 =  
-animation-charging-foreground = ${colors.font}
+animation-charging-foreground = ${colors.color7}
 
 animation-charging-framerate = 500
 animation-discharging-0 = 
@@ -372,7 +382,7 @@ animation-discharging-3 = 
 animation-discharging-4 = 
 
 
-animation-discharging-foreground = ${colors.font}
+animation-discharging-foreground = ${colors.color7}
 animation-discharging-framerate = 750
 
 [module/temperature]
@@ -382,20 +392,19 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = ${colors.color7}
+; format-underline = ${colors.color7}
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${colors.color7}
+; format-warn-underline = ${colors.color7}
 format-prefix = "  "
-format-background = ${colors.color3}
-format-suffix = "  "
+; format-background = ${colors.color3}
 label = %temperature-c%    
 label-warn = %temperature-c%
-label-foreground = ${colors.font}
+label-foreground = ${colors.color7}
 
 ramp-0 =  
 ramp-1 =  
 ramp-2 =  
-ramp-foreground = ${colors.font}
+ramp-foreground = ${colors.color7}
 
 [module/powermenu]
 type = custom/menu
@@ -490,4 +499,6 @@ type = custom/script
 exec = ~/.config/polybar/scripts/updates-arch-combined.sh
 interval = 600
 format-prefix =
+format-prefix-foreground = ${colors.color7}
 format-foreground = ${colors.color7}
+format-background = ${colors.color0}
